@@ -1,7 +1,5 @@
-var addData,
-    someData;
 
-addData  = function (dataPointsAdded, originalDataPoints) {
+module.exports.addData  = function (dataPointsAdded, originalDataPoints) {
     "use strict";
 
     var completeDataPoints = [],
@@ -17,7 +15,13 @@ addData  = function (dataPointsAdded, originalDataPoints) {
     return completeDataPoints;
 };
 
-someData = [{data: 2}];
-console.log(addData([{data: 30}, {data: 20}, {data: 3}], someData));
+module.exports.average = function (dataPoints) {
+    "use strict";
+    var total = 0;
 
-console.log(someData);
+    dataPoints.forEach(function (currentValue) {
+        total += currentValue.measurement;
+    });
+
+    return total / dataPoints.length;
+};
